@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const log = console.log;
 
-
+log(chalk.yellow("CLI-APP-1 By Tanay Pratap"))
 log(chalk.yellow("how better you know our hostel,"))
 
 
