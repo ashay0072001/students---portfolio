@@ -1,82 +1,112 @@
 
-// TANAY PRATAP CLI_app-2
+console.log("TANAY PRATAP CLI APP-2")
+var readlineSync= require ('readline-sync');
 
 const chalk = require('chalk');
-const log = console.log;
-console.log(log(chalk.yellow("Tanay Pratap CLI- APP-2 ")))
-console.log(log(chalk.yellow("Baics question answers on computer")))
-console.log(log(chalk.yellow("Check how much you know about the computer")))
+var currentScore=0;
 
-score = 0;
-var readlineSync = require('readline-sync');
-var myHostelRoom = readlineSync.question(log(chalk.blue("1. WWW stands for?,\nA:World Whole Web\nB:WideWorldWeb\nC:Web World Wide \nD:World Wide Web")));
+var userName= readlineSync.question(chalk.bold.yellowBright
+("welcome to the game.Please enter your good name?"));
+console.log("     ");
+var welcomeMsg= ("Welcome "+userName);
+console.log(chalk.bold.cyanBright(welcomeMsg));
+console.log("    ");
 
-console.log("your answer " + myHostelRoom);
+console.log(chalk.bold.magentaBright("Commands need to be followed to access the game\n=> enter the options given if you are sure about the answer.\n=> lets figure the knowledge about computers\n"));
+console.log("     ");
 
-if (myHostelRoom === "D") {
-  console.log("right, good going try next one")
-  score = score + 1;
-  console.log("your current score " + score);
-}
-else {
-  console.log("wrong");
-  score = score - 1;
-  console.log("your current score " + score);
-}
-function roomOfDevil(question, answer) {
-  var readlineSync = require('readline-sync');
-  var userAnswer = readlineSync.question(question)
-  console.log("your answer " + userAnswer);
-  if (userAnswer === answer) {
-    console.log(log(chalk.blue("right")));
-    score = score + 1;
-    console.log('your current score' + score);
-  }
-  else {
-    console.log(log(chalk.red("wrong")));
-    score = score - 1;
-    console.log('your current score' + score);
-  }
+var game='" |Do you really know about computer,To test join and play|"';
+console.log(chalk.bold.yellowBright("START==>  "+game));
+console.log("    ");
 
+
+console.log(chalk.bold.cyanBright("GOOD LUCK!!!\n"));
+
+console.log("     ");
+
+//function
+function play(ques,answer)
+{
+var  userAnswer=readlineSync.question(chalk.bold.blueBright(ques));
+if(userAnswer.toLowerCase()===answer)
+{
+  console.log(chalk.bold.green("You Are Right!"));
+  currentScore+=1
+  console.log(chalk.bold.magentaBright("Your score is: "+currentScore));
+}
+else
+{
+  console.log(chalk.bold.red("You Are Wrong!"));
+  console.log(chalk.bold.magentaBright("Your score is: "+currentScore));
+}
+console.log("(*_*) (*_*) (*_*) (*_*) (*_*) (*_*)");
 }
 
-var questions = [{
-  question: (log(chalk.green(" Which among following first generation of computers had ?\nA:Vaccum Tubes and Magnetic Drum\nB:Integrated Circuits\nC:Magnetic Tape and Transistors\nD:All of above"))),
-  answer: "A"
-},
+//array of questions and answers
+var ques=[
+  {
+   question:"Which among following first generation of computers had ?"+chalk.gray("\nA:Vaccum Tubes and Magnetic Drum\nB:Integrated Circuits\nC:Magnetic Tape and Transistors\nD:All of above")+chalk.bold.white("Ans: "),
+   answer:"a",
+  },
+
+ {
+   question:"2.Which of the following are components of Central Processing Unit (CPU) ?"+chalk.gray("\nA:Arithmetic logic unit Mouse \n B:Arithmetic logic unit, Control unit\n C:Arithmetic logic unit Integrated Circuits \n D:Control Unit, Monitor")+chalk.bold.white("Ans: "),
+   answer:"b",
+ },
+ {
+   question:"3.Where is RAM located ?"+chalk.gray("\nA:Expansion Board\nB:External Drive\nC:Mother Board\nD:All of above")+chalk.bold.white("Ans: "),
+   answer:"c",
+ },
+ {
+   question:"4.If a computer has more than one processor then it is known as ?"+chalk.gray("\nA:Uniprocess\nB:Multiprocessor\nC:Multithreaded\nD:Multiprogramming ")+chalk.bold.white("Ans: "),
+   answer:"b",
+ },
+ {question:"5. If a computer provides database services to other, then it will be known as ?"+chalk.gray("\nA:Web server\nB:Application server\nC:Database server\nD:FTP server")+chalk.bold.white("Ans: "),
+ answer:"c",
+ },
+  {question:"6.Full form of URL is ?"+chalk.gray("\nA:Uniform Resource Locator\nB:Uniform Resource Link\nC:Uniform Registered Link\nD:Unified Resource Link")+chalk.bold.white("Ans: "),
+ answer:"a",
+ },
+  {question:"7.  In which of the following form, data is stored in computer ?"+chalk.gray("\nA:Decimal\nB:Binary\nC:HexaDecimal\nD:Octal")+chalk.bold.white("Ans: "),
+ answer:"b",
+ },
+  {question:"8. Technology used to provide internet by transmitting data over wires of telephone network is ?"+chalk.gray("\nA:Transmitter\nB:Diodes\nC:HHL\nD:DSL")+chalk.bold.white("Ans: "),
+ answer:"d",
+ },
+ 
+]
+
+for (i=0;i<ques.length;i++)
 {
-  question: "Which of the following are components of Central Processing Unit (CPU) ?\nA:Arithmetic logic unit Mouse \n B:Arithmetic logic unit, Control unit\n C:Arithmetic logic unit Integrated Circuits \n D:Control Unit, Monitor",
-  answer: "B"
-},
-{
-  question: "Where is RAM located ?\nA:Expansion Board\nB:External Drive\nC:Mother Board\nD:All of above",
-  answer: "C"
-},
-{
-  question: "If a computer has more than one processor then it is known as ?\nA:Uniprocess\nB:Multiprocessor\nC:Multithreaded\nD:Multiprogramming ",
-  answer: "B"
-},
-{
-  question: "If a computer provides database services to other, then it will be known as ?\nA:Web server\nB:Application server\nC:Database server\nD:FTP server",
-  answer: "C"
+  play(ques[i].question,ques[i].answer);
 }
-  , {
-  question: "Full form of URL is ?\nA:Uniform Resource Locator\nB:Uniform Resource Link\nC:Uniform Registered Link\nD:Unified Resource Link",
-  answer: "A"
-},
+
+console.log(chalk.bold.yellowBright("Your Total Score Is "+currentScore));
+
+
+
+
+var userscore=[{name:"Ashay",score:"8",},{name:"Manish",score:"8",},]
+userscore.push({name:userName,score:currentScore})
+
+for(i=0;i<userscore.length;i++)
 {
-  question: "8. In which of the following form, data is stored in computer ?\nA:Decimal\nB:Binary\nC:HexaDecimal\nD:Octal",
-  answer: "B"
-},
-{
-  question: "9. Technology used to provide internet by transmitting data over wires of telephone network is ?\nA:Transmitter\nB:Diodes\nC:HHL\nD:DSL",
-  answer: "D"
-}]
-for (var i = 0; i < questions.length; i = i + 1) {
-  var currentQuestion = questions[i];
-  roomOfDevil(currentQuestion.question, currentQuestion.answer);
+  console.log(chalk.bold.gray(""+userscore[i].name,""+userscore[i].score));
 }
-console.log("total score:" + score);
-console.log(log(chalk.yellow("YAY students keep going Keep learning")))
-console.log(log(chalk.yellow("HIGH SCORE")))
-console.log(log(chalk.green("ASHaY : 10")))
+console.log("      ");
+
+for(i=0;i<userscore.length;i++)
+{
+if (currentScore>userscore[i].score)
+{
+console.log(chalk.bold.yellowBright(userName+" You Have Beaten Player One"));
+
+break;
+}
+else{
+  console.log(chalk.bold.cyanBright("Be the best NEXT TIME!!"));
+}break;
+}
+console.log("     ");
+
+console.log (chalk.bold.blue("come again for next try"));
